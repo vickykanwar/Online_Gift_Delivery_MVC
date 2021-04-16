@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Online_Gift_Delivery_MVC.Models.Gift>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gifts</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">+ Add New Gift</a>
+</p>
+
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title"> @Html.DisplayFor(modelItem => item.ItemName)</h5>
+
+            <h6 class="card-subtitle mb-2 text-muted">Price : @Html.DisplayFor(modelItem => item.ItemPrice)</h6>
+
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+            <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id"> Details </a>
+
+            <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id"> Delete </a>
+
+        </div>
+    </div>
+}
